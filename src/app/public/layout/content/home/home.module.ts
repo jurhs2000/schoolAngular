@@ -2,22 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselDirective } from './carousel/carousel.directive';
 
 const ROUTES: Routes = [
   { path: '', component: HomeComponent }
-]
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES),
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule
+    RouterModule.forChild(ROUTES)
   ],
-  declarations: [HomeComponent]
+  declarations: [
+    HomeComponent,
+    CarouselComponent,
+    CarouselDirective
+  ]
 })
 export class HomeModule { }
