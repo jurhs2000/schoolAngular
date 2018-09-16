@@ -5,7 +5,7 @@ import { Component, OnInit, AfterViewInit, Renderer2, ElementRef, ViewChild } fr
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
@@ -15,9 +15,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @ViewChild("item") item: ElementRef;
 
   carouselImages = [
-    'download.jpg',
-    'dsfsf.jpg',
-    'images.jpg'
+    'download.jpg*',
+    'dsfsf.jpg*',
+    'images.jpg*'
   ];
 
   ngOnInit() {

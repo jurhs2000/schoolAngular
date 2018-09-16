@@ -1,0 +1,23 @@
+<div class="container-login">
+  <div class="logo">
+    <img src="../../../../../../assets/icons/icon-school.svg">
+    <h1>SCHOOL</h1>
+  </div>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="legacy">
+      <mat-label>User</mat-label>
+      <input matInput placeholder="User" formControlName="user">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+      <mat-icon matSuffix>vpn_key</mat-icon>
+    </mat-form-field>
+    <mat-slide-toggle class="example-margin" formControlName="remember">Remember me?</mat-slide-toggle>
+    <button class="button" mat-stroked-button (click)="login()">Log In</button>
+    <button class="button" mat-stroked-button>Sign In</button>
+  </form>
+</div>
+
+<div class="crossing"></div>
