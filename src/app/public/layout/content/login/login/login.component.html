@@ -6,13 +6,19 @@
   <form [formGroup]="userForm">
     <mat-form-field appearance="legacy">
       <mat-label>User</mat-label>
-      <input matInput placeholder="User" formControlName="user">
+      <input matInput placeholder="User" [errorStateMatcher]="matcher" formControlName="user">
       <mat-icon matSuffix>person</mat-icon>
+      <mat-error *ngIf="userForm.controls.user.hasError('required')">
+        User is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="legacy">
       <mat-label>Password</mat-label>
-      <input matInput type="password" placeholder="Password" formControlName="password">
+      <input matInput type="password" placeholder="Password" [errorStateMatcher]="matcher" formControlName="password">
       <mat-icon matSuffix>vpn_key</mat-icon>
+      <mat-error *ngIf="userForm.controls.user.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <mat-slide-toggle class="example-margin" formControlName="remember">Remember me?</mat-slide-toggle>
     <button class="button" mat-stroked-button (click)="login()">Log In</button>

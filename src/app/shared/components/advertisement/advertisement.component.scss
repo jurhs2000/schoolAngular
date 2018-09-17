@@ -1,0 +1,15 @@
+.container-advertisement {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: red;
+    color: white;
+    z-index: 10;
+    transition: .3s ease-out;
+}
+
+.show {
+    top: 50px !important;
+}

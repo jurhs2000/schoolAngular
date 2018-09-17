@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutRoutingModule } from './layout.routing';
 import { LayoutComponent } from './layout.component';
+import { AdvertisementComponent } from '../../shared/components/advertisement/advertisement.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import { LayoutComponent } from './layout.component';
     LayoutRoutingModule
   ],
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    AdvertisementComponent
   ]
 })
 export class LayoutModule { }

@@ -2,15 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { Routes, RouterModule } from '@angular/router';
-import { CarouselComponent } from './carousel/carousel.component';
-import { CarouselDirective } from './carousel/carousel.directive';
-import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatButtonModule } from '@angular/material/button';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Interceptor } from '../../../services/auth/token.interceptor';
 
 const ROUTES: Routes = [
   { path: '', component: HomeComponent }
@@ -19,19 +12,16 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES),
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatButtonModule
+    RouterModule.forChild(ROUTES)
+  ],providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
   ],
   declarations: [
-    HomeComponent,
-    CarouselComponent,
-    CarouselDirective,
-    LoginComponent
+    HomeComponent
   ]
 })
 export class HomeModule { }

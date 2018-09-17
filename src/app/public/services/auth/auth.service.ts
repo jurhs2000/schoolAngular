@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHeaders, HttpClient } from '@angular/common/http';
 import { ROUTE } from '../../../../environments/environment';
+import { Router } from '@angular/router';
+import { TokenService } from './token.service';
+import { GlobalService } from '../../../shared/utils/global.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,32 +11,29 @@ import { ROUTE } from '../../../../environments/environment';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private tokenService: TokenService,
+    private globalService: GlobalService
   ) { }
 
-  token: String;
   cachedRequests: Array<HttpRequest<any>> = [];
 
-  setToken() {
-    
-  }
-
-  getToken() {
-
-  }
-
-  login(): Promise<Object> {
-    let username: string = 'SSIDSchool';
-    let password: string = 'secret@school.app';
-    let data = new FormData();
-    data.append("grant_type", "password")
-    data.append("username", "admin");
-    data.append("password", "guatemala")
-    data.append("scope", "read write")
-    let headers: HttpHeaders = new HttpHeaders();
-    headers.append("Authorization", "Basic " + btoa(username + ":" + password)); 
-    headers.append("Content-Type", "application/x-www-form-urlencoded");
-    return this.http.post(ROUTE + "/oauth/token", data, { headers: headers }).toPromise()
+  login(data: any) {
+    let body = new URLSearchParams();
+    body.set("grant_type", "password")
+    body.set("username", data.user);
+    body.set("password", data.password)
+    body.set("scope", "read write")
+    let headers = new HttpHeaders()
+    headers = headers.append("Authorization", "Basic U1NJRFNjaG9vbDpzZWNyZXRAc2Nob29sLmFwcA==")
+    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
+    return this.http.post(ROUTE + "/oauth/token", body.toString(), { headers: headers }).toPromise().then((res: any) => {
+      this.tokenService.setToken(res.access_token, data.remember)
+      this.router.navigate(['home'])
+    }, err => {
+      //this.globalService.showAdvertisement()
+    })
   }
 
   public collectFailedRequest(request): void {
