@@ -8,7 +8,12 @@ export class AuthService {
 
   constructor() { }
 
+  token: String;
   cachedRequests: Array<HttpRequest<any>> = [];
+
+  setToken() {
+    
+  }
 
   getToken() {
 

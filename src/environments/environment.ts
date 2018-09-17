@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  URL: 'http://localhost:9300',
+  API_VERSION: '/api/v1'
 };
+
+export const API_ROUTE = `${environment.URL}${environment.API_VERSION}`;
+export const ROUTE = `${environment.URL}`;
 
 /*
  * In development mode, for easier debugging, you can ignore zone related error
