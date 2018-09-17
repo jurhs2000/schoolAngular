@@ -7,6 +7,7 @@ const ROUTES: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
+      //{ path: 'home', loadChildren: './content/landing/landing.module#LandingModule' },
       { path: '', loadChildren: './content/home/home.module#HomeModule' }
     ]
   },
