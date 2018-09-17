@@ -23,12 +23,12 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  /*ngAfterViewInit() {
+  ngAfterViewInit() {
     var contador = 0;
     setInterval(() => {
       this.renderer.setStyle(this.item.nativeElement, 'background-image', "url('./assets/img/home/" + this.carouselImages[contador] + "')");
       contador++;
     }, 5000);
-  }*/
+  }
 
 }
