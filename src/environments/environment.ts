@@ -4,12 +4,8 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  url: 'localhost:9200/api/'
-=======
-  URL: 'http://localhost:9300',
+  URL: 'http://192.168.136.226:9300',
   API_VERSION: '/api/v1'
->>>>>>> 9f60bbd9a114cae02ce3492ad8654e8e19ec2ec8
 };
 
 export const API_ROUTE = `${environment.URL}${environment.API_VERSION}`;

@@ -9,7 +9,7 @@ export class OnlineCourseService {
     ruta = 'online_course/';
     pagination: string;
 
-    getAll(pageable, page, size): Promise<any> {
+    /*getAll(pageable, page, size): Promise<any> {
         this.pagination = '?pageable=' + pageable + '&page=' + page + '&size=' + size;
         return this.rootService.getAll(this.ruta + this.pagination);
     }
@@ -32,6 +32,6 @@ export class OnlineCourseService {
 
     delete(id: number): Promise<any> {
         return this.rootService.delete(this.ruta + id);
-    }
+    }*/
 
 }

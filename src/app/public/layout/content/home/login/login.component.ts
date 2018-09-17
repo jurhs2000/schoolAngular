@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../../../services/user.service';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private authService: AuthService
   ) { }
 
   userForm: FormGroup;
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.userForm.value)
     if(this.userForm.valid) {
-      this.userService.login().then(res => {
+      this.authService.login().then(res => {
         console.log(res)
       })
     } else {
